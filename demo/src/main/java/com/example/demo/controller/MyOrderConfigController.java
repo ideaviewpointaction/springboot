@@ -19,7 +19,7 @@ public class MyOrderConfigController {
     private MyOrderConfig myOrderConfig;
 
     @GetMapping("/myOrderTest")
-    public MyOrderConfig getMyOrderConfig(){
+    public MyOrderConfig getMyOrderConfig() {
         return myOrderConfig;
     }
 }

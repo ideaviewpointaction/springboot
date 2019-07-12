@@ -19,7 +19,7 @@ public class ModalController {
     private RandomData randomData;
 
     @GetMapping("/randomData")
-    public RandomData getRandom(){
+    public RandomData getRandom() {
         return randomData;
     }
 

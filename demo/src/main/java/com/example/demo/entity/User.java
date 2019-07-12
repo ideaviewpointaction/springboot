@@ -1,46 +1,31 @@
 package com.example.demo.entity;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
-@Component
-@ConfigurationProperties(prefix = "pocket")
 public class User {
+    private String userId;
+    private int userAge;
+    private String userName;
 
-    private String name;
-    private Integer age;
-    private String country;
-    private String address;
-
-    public String getName() {
-        return name;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Integer getAge() {
-        return age;
+    public int getUserAge() {
+        return userAge;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setUserAge(int userAge) {
+        this.userAge = userAge;
     }
 
-    public String getCountry() {
-        return country;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

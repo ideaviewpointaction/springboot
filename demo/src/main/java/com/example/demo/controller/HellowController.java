@@ -1,8 +1,11 @@
 package com.example.demo.controller;
 
 //import ch.qos.logback.classic.Logger;
+
+import com.example.demo.serviceImp.TestLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class HellowController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private TestLog testLog;
 
     @Value("${pocket.name}")
     private String name;
@@ -25,15 +31,12 @@ public class HellowController {
     private String address_liumao;
 
     @GetMapping("/hellow")
-    public String hellow(){
-        String str="hellow, my name is"+name+",I'm"+age+". I live in "+address_liumao;
-
+    public String hellow() {
+        String str = "hellow, my name is" + name + ",I'm" + age + ". I live in " + address_liumao;
+        testLog.hellow();
         logger.info(str);
         return str;
     }
-
-
-
 
 
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @Version
  **/
 @Component
-@ConfigurationProperties(prefix="test")
+@ConfigurationProperties(prefix = "test")
 public class RandomData {
 
     private int randomInt;

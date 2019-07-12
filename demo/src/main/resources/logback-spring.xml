@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <property name="app_name" value="demo"/>
+    <property name="log.path" value="/home/liumao/log"/>
+
+    <contextName>${app_name}</contextName>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/${app_name}/${app_name}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>5MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <root level="info">
+        <appender-ref ref="console"/>
+        <appender-ref ref="file"/>
+    </root>
+
+    <logger name="com.example.demo.mapper" level="DEBUG" additivity="false">
+        <appender-ref ref="console" />
+    </logger>
+
+    <!-- 测试环境+开发环境. -->
+    <springProfile name="test,dev">
+        <logger name="com.example.demo" level="INFO" />
+    </springProfile>
+    <!-- 生产环境 -->
+    <!-- 可以定义不同的文件目录下打印什么样的日志级别-->
+    <springProfile name="prod">
+        <logger name="com.example.demo" level="ERROR"/>
+    </springProfile>
+
+
+</configuration>
