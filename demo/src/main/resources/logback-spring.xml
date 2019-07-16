@@ -29,12 +29,12 @@
     </root>
 
     <logger name="com.example.demo.mapper" level="DEBUG" additivity="false">
-        <appender-ref ref="console" />
+        <appender-ref ref="console"/>
     </logger>
 
     <!-- 测试环境+开发环境. -->
     <springProfile name="test,dev">
-        <logger name="com.example.demo" level="INFO" />
+        <logger name="com.example.demo" level="INFO"/>
     </springProfile>
     <!-- 生产环境 -->
     <!-- 可以定义不同的文件目录下打印什么样的日志级别-->

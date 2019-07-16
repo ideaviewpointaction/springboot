@@ -6,4 +6,8 @@
         SELECT * FROM tbl_user
     </select>
 
+    <select id="getUsersForPage" resultType="com.example.demo.entity.User">
+        SELECT * FROM tbl_user
+    </select>
+
 </mapper>

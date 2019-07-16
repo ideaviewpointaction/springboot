@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TestLog {
-    Logger logger=LoggerFactory.getLogger(this.getClass());
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public void hellow(){
+    public void hellow() {
         logger.error("我答应了么");
         logger.info("我是INFO 我答应了么");
     }
