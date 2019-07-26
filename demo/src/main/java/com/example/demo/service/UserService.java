@@ -10,4 +10,6 @@ public interface UserService {
     List<User> getUsers();
 
     Page<User> getUsersForPage();
+
+    User getUserById(Long id);
 }

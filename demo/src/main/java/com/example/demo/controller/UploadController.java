@@ -13,10 +13,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * @author liumao
+ */
 @Controller
 public class UploadController {
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping("/upload")
     public String upload() {

@@ -10,4 +10,8 @@
         SELECT * FROM tbl_user
     </select>
 
+    <select id="getUserById" resultType="com.example.demo.entity.User" parameterType="long">
+        SELECT * FROM tbl_user where id =#{id}
+    </select>
+
 </mapper>

@@ -16,4 +16,6 @@ public interface UserMapper {
     List<User> getUsers();
 
     Page<User> getUsersForPage();
+
+    User getUserById(Long id);
 }
