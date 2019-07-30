@@ -28,13 +28,13 @@ public class UploadController {
 
     @PostMapping("/upload")
     @ResponseBody
-    public String upload(@RequestParam("file") MultipartFile file){
-        if(file.isEmpty()){
+    public String upload(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
             return "文件为空";
         }
         String filename = file.getOriginalFilename();
-        String localPath="/home/liumao/testUpload";
-        String filePathStr=localPath+filename;
+        String localPath = "/home/liumao/testUpload";
+        String filePathStr = localPath + filename;
         File filePath = new File(filePathStr);
         try {
             file.transferTo(filePath);
@@ -52,11 +52,11 @@ public class UploadController {
 
     @PostMapping("/uploadFiles")
     @ResponseBody
-    public String uploadFiles(HttpServletRequest request){
+    public String uploadFiles(HttpServletRequest request) {
         List<MultipartFile> fileList = ((MultipartHttpServletRequest) request).getFiles("file");
-        String filePath="/home/liumao/testUpload/";
-        for (MultipartFile file: fileList){
-            if(file.isEmpty()){
+        String filePath = "/home/liumao/testUpload/";
+        for (MultipartFile file : fileList) {
+            if (file.isEmpty()) {
                 continue;
             }
             String originalFilename = file.getOriginalFilename();

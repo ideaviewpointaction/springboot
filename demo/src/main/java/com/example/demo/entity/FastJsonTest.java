@@ -14,7 +14,7 @@ public class FastJsonTest {
     private Date date;
 
     /**
-     *  转换json时不包含此属性
+     * 转换json时不包含此属性
      */
     @JSONField(serialize = false)
     private String ignore;

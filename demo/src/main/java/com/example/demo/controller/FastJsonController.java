@@ -9,10 +9,10 @@ import java.util.Date;
 @RestController
 public class FastJsonController {
     @GetMapping("/getFastJson")
-    public FastJsonTest getFastJson(){
-        FastJsonTest fastJsonTest=new FastJsonTest();
+    public FastJsonTest getFastJson() {
+        FastJsonTest fastJsonTest = new FastJsonTest();
         fastJsonTest.setId(1);
-        fastJsonTest.setStr("str111222333");
+        fastJsonTest.setStr("你好呀");
         fastJsonTest.setDate(new Date());
         fastJsonTest.setIgnore("ignore");
         return fastJsonTest;

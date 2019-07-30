@@ -12,4 +12,6 @@ public interface UserService {
     Page<User> getUsersForPage();
 
     User getUserById(Long id);
+
+    void evictUser(Long userId);
 }

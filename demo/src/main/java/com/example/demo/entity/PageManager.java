@@ -50,19 +50,28 @@ public class PageManager {
 
     @Override
     public boolean equals(final Object o) {
-        if (o == this) {return true;}
-        if (!(o instanceof PageManager)) {return false;}
-        final PageManager other = (PageManager) o;
-        if (!other.canEqual((Object) this)){ return false;}
-        if (this.getCurrentPage() != other.getCurrentPage()) {return false;}
-        if (this.getPageSize() != other.getPageSize()) {return false;}
-        if (this.getTatalPage() != other.getTatalPage()) {return false;}
-        final Object this$pageContent = this.getPageContent();
-        final Object other$pageContent = other.getPageContent();
-        if (this$pageContent == null ? other$pageContent != null : !this$pageContent.equals(other$pageContent)) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof PageManager)) {
             return false;
         }
-        return true;
+        final PageManager other = (PageManager) o;
+        if (!other.canEqual(this)) {
+            return false;
+        }
+        if (this.getCurrentPage() != other.getCurrentPage()) {
+            return false;
+        }
+        if (this.getPageSize() != other.getPageSize()) {
+            return false;
+        }
+        if (this.getTatalPage() != other.getTatalPage()) {
+            return false;
+        }
+        final Object this$pageContent = this.getPageContent();
+        final Object other$pageContent = other.getPageContent();
+        return this$pageContent == null ? other$pageContent == null : this$pageContent.equals(other$pageContent);
     }
 
     protected boolean canEqual(final Object other) {
@@ -80,6 +89,7 @@ public class PageManager {
         result = result * PRIME + ($pageContent == null ? 43 : $pageContent.hashCode());
         return result;
     }
+
     @Override
     public String toString() {
         return "PageManager(currentPage=" + this.getCurrentPage() + ", pageSize=" + this.getPageSize() + ", tatalPage=" + this.getTatalPage() + ", pageContent=" + this.getPageContent() + ")";

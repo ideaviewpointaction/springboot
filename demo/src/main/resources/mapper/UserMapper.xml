@@ -11,7 +11,7 @@
     </select>
 
     <select id="getUserById" resultType="com.example.demo.entity.User" parameterType="long">
-        SELECT * FROM tbl_user where id =#{id}
+        SELECT * FROM tbl_user where user_id =#{id}
     </select>
 
 </mapper>
