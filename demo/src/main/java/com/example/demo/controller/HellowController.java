@@ -12,8 +12,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
-@ConfigurationProperties(prefix = "test")
+@ConfigurationProperties(prefix = "liumao")
 public class HellowController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -21,24 +23,35 @@ public class HellowController {
     @Autowired
     private TestLog testLog;
 
-    @Value("${pocket.name")
+    @Autowired
+    private RandomData randomData;
+
+    @Value("${pocket.name}")
     private String name;
 
     @Value("${pocket.age}")
     private Integer age;
 
-    @Value("${pocket.count")
-    private String country;
+//    @Value("${pocket.country}")
+//    private String country;
 
     @Value("${pocket.address}")
     private String address_liumao;
 
-    private int randomInt;
+    public String getAage() {
+        return aage;
+    }
+
+    public void setAage(String aage) {
+        this.aage = aage;
+    }
+
+    private String aage;
 
     @GetMapping("/hellow")
     public String hellow() {
-        String str = "hellow, my name is" + name + ",I'm" + age + ". I live in " + address_liumao;
-        str=str+"random="+randomInt;
+        String str = "hellow, my name is" + name + ",I'm" + age + ". I live in " + address_liumao+"country="+aage;
+//       String str="random="+randomValue;
         testLog.hellow();
         logger.info(str);
         return str;
@@ -46,7 +59,13 @@ public class HellowController {
 
     @GetMapping("/hellow2")
     public RandomData hellow2() {
-       return new RandomData();
+       return this.randomData;
+    }
+
+    @GetMapping("/hellow3")
+    public Map<String, String> hellow3() {
+//        return randomData.getMap();
+        return null;
     }
 
 

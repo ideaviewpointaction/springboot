@@ -10,6 +10,7 @@ import java.util.Map;
 public class RandomDataController {
 
 
+
     @GetMapping("getRandomData")
     public Map<String, String> getRandomData(){
         return new HashMap<>();

@@ -30,7 +30,7 @@ public class MyBean implements ApplicationRunner {
 
         List<String> nonOptionArgs = args.getNonOptionArgs();
         logger.info(nonOptionArgs.toString());
-
-
     }
+
+
 }

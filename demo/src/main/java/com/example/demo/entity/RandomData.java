@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +13,8 @@ import java.util.Map;
  * @Date 2019/7/11 6:36
  * @Version
  **/
-
-@ConfigurationProperties(prefix = "test")
+@Component
+@ConfigurationProperties("acm")
 public class RandomData {
 
 //    private int randomInt;
@@ -70,10 +71,9 @@ public class RandomData {
 //    public void setRandomUUID(String randomUUID) {
 //        this.randomUUID = randomUUID;
 //    }
+    private final Map<String,Map<String,String>> map=new HashMap<>();
 
-    private final Map<String,String> map =new HashMap<String,String>();
-
-    public Map<String,String> getMap(){
-        return this.map;
+    public Map<String, Map<String,String>> getMap() {
+        return map;
     }
 }
