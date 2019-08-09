@@ -13,6 +13,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import tk.mybatis.spring.annotation.MapperScan;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import java.util.List;
  * SpringBootApplication是一个三合一的注解   @ComponentScan @EnableAutoConfiguration  @Configuration
  */
 @EnableCaching
+@EnableScheduling
 @MapperScan("com.example.demo.mapper")
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class,
         MybatisAutoConfiguration.class,

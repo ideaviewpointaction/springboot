@@ -51,7 +51,7 @@ public class UserController {
 //        return new User("123","刘茂",18);
     }
 
-    @GetMapping(value = "del/{id}", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = {"del/{id}","del2/{id}"},produces = {"application/json;charset=UTF-8"})
     public String delUserById(@PathVariable("id") Long id) {
         userService.evictUser(id);
         return "你好呀";
