@@ -1,27 +1,40 @@
 package com.example.demo.aop;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * @Before 等注解上的都是约束  如：execution表达式
+ * AfterReturn 中的returnning 海牙exception等  都是对表达式做的限制
+ *
+ *
+ */
 @Aspect
 @Component
 public class WebLogAspect {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Pointcut("execution(public * com.example.demo..*.getUserById(..))")
+    @Pointcut("execution(public * com.example.demo..*.getUserById2(..))")
     public void pointcut(){}
 
     @Before("pointcut()")
-    public void beginTransaction(){
+    public void beginTransaction(JoinPoint joinPoint){
+        Object[] objs=joinPoint.getArgs();
+        for (int j=0;j<objs.length;j++){
+            logger.info("before.."+objs[j]);
+        }
         logger.info("begin transaction");
+
     }
 
     @After("pointcut()")
-    public void commit(){
+    public void commit(JoinPoint joinPoint){
+        joinPoint.getSignature();
         logger.info("after commit");
     }
 
@@ -32,8 +45,6 @@ public class WebLogAspect {
 
     @Around("pointcut()")
     public  Object doAround(ProceedingJoinPoint joinPoint){
-        logger.info("around advance 开始执行");
-
             Object obj;
         try {
             obj=joinPoint.proceed();
