@@ -29,6 +29,7 @@ public class WebLogAspect {
             logger.info("before.."+objs[j]);
         }
         logger.info("begin transaction");
+        logger.info("bbb");
 
     }
 
